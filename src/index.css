@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations for hero section */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Modal animations */
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(-50px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-modal-fade-in {
+  animation: modal-fade-in 0.3s ease-out forwards;
+}
+
+.animate-modal-bounce-in {
+  animation: modal-bounce-in 0.4s ease-out forwards;
+}
+
+/* Enhanced hover effects */
+.hover\:shadow-3xl:hover {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Ensure animations work on mobile */
+  [data-aos] {
+    transition-duration: 0.6s !important;
+  }
+  
+  /* Reduce animation complexity on mobile for better performance */
+  .animate-bounce-in {
+    animation-duration: 0.6s;
+  }
+  
+  .animate-fade-in-up {
+    animation-duration: 0.8s;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: transform, opacity, background-color, border-color, color, fill, stroke, box-shadow;
+}
